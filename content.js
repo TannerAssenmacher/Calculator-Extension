@@ -1,15 +1,18 @@
 let label = document.getElementById('display');
 
+let memory = '';
+let operator = '';
+
 // Add a listener for the browser action button
-chrome.browserAction.onClicked.addListener(function(tab) 
-{
-    // Create a new tab with a specific URL
-    chrome.tabs.create({ url: 'https://www.example.com' });
-});
+// chrome.browserAction.onClicked.addListener(function(tab) 
+// {
+//     // Create a new tab with a specific URL
+//     chrome.tabs.create({ url: 'https://www.example.com' });
+// });
 
 function display(num)
 {   
-    label.innerHTML = label.text + num;
+    label.innerHTML = label.innerHTML + num;
 }
 
 function Clear()
@@ -29,28 +32,60 @@ function del()
     label.innerHTML = curr.slice(0, curr.length - 1);
 }
 
-function Calculate(num1, num2, op)
+function setOperator(op)
 {
-    if(num1 == 'Error' || num2 == 'Error')
-        return 'Error';
+    operator = op;
+
+    mem = label.innerHTML;
+
+    Clear();
+}
+
+function Calculate()
+{
+
+    var res;
+    let val = Number(label.innerHTML);
+
+    mem = Number(mem);
+
+    if(Number.isNaN(mem) || Number.isNaN(val))
+    {
+        mem = 'Error';
+        return;
+    }
     
-    switch(op)
+    switch(operator)
     {
         case '+':
-            return num1 + num2;
+            res = mem + val;
+            break;
         case '-':
-            return num1 - num2;
+            res = mem - val;
+            break;
         case '*':
-            return num1 * num2;
+            res = mem * val;
+            break;
         case '/':
-            if(num2 == 0)
-                return 'Error';
-            return num1 / num2;
+            if(val == 0)
+            {
+                res = 'Error';
+                return;
+            }
+            res = mem / val;
+            break;
         case '%':
-            if(num2 == 0 || !Number.isInteger(num1 / num2))
-                return 'Error';
-            return num1 % num2;
+            if(val == 0 || !Number.isInteger(mem / val))
+            {
+                res = "Error";
+                return;
+            }
+            res = mem % val;
+            break;
         default:
-            return 'Error';
+            res = "Error";
+            break;
     }
+
+    label.innerHTML = res;
 }
