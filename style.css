@@ -127,7 +127,7 @@ button:hover {
 }
 
 .calculator button.btn-equal {
-    background-color: #adf9e7;
+    background-color: #c2f2d0;
     color: #000;
 }
 
@@ -148,10 +148,10 @@ button:hover {
 
 .calculator.dark button.btn-operator {
     background-color: #2e1f39;
-    color: #aa00a4;
+    color: #6e61ca;
 }
 
 .calculator.dark button.btn-equal {
-    background-color: #223323;
+    background-color: #243d66;
     color: #ffffff;
 }
