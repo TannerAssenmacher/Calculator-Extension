@@ -23,6 +23,11 @@
         "js": ["js/content.js"],
         "run_at": "document_end"
         }
-    ]
+    ],
+
+    "action":
+    {
+      "default_popup": "index.html"
+    }
   }
   
