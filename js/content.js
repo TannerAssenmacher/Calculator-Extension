@@ -18,6 +18,7 @@ function display(num)
 function Clear()
 {
     label.innerHTML = '';
+    memory = '';
 }
 
 function del()
@@ -36,9 +37,11 @@ function setOperator(op)
 {
     operator = op;
 
-    mem = label.innerHTML;
+    let txt = label.innerHTML;
 
     Clear();
+
+    memory = txt;
 }
 
 function Calculate()
@@ -47,24 +50,24 @@ function Calculate()
     var res;
     let val = Number(label.innerHTML);
 
-    mem = Number(mem);
+    memory = Number(memory);
 
-    if(Number.isNaN(mem) || Number.isNaN(val))
+    if(Number.isNaN(memory) || Number.isNaN(val))
     {
-        mem = 'Error';
+        memory = 'Error';
         return;
     }
     
     switch(operator)
     {
         case '+':
-            res = mem + val;
+            res = memory + val;
             break;
         case '-':
-            res = mem - val;
+            res = memory - val;
             break;
         case '*':
-            res = mem * val;
+            res = memory * val;
             break;
         case '/':
             if(val == 0)
@@ -72,15 +75,15 @@ function Calculate()
                 res = 'Error';
                 return;
             }
-            res = mem / val;
+            res = memory / val;
             break;
         case '%':
-            if(val == 0 || !Number.isInteger(mem / val))
+            if(val == 0 || !Number.isInteger(memory / val))
             {
                 res = "Error";
                 return;
             }
-            res = mem % val;
+            res = memory % val;
             break;
         default:
             res = "Error";
