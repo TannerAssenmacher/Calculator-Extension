@@ -3,31 +3,31 @@
     "version": "1.0.0",
     "manifest_version": 3,
     "description": "This is calculator extension used for any on demand calculations.",
-    "icons": 
-    {
-      "16": "Icons/icon16.png",
-      "48": "Icons/icon48.png",
-      "128": "Icons/icon128.png"
+    "icons": {
+        "16": "Icons/icon16.png",
+        "48": "Icons/icon48.png",
+        "128": "Icons/icon128.png"
     },
-    "permissions": 
-    [
-      "tabs",
-      "storage",
-      "activeTab"
+    "permissions": [
+        "tabs",
+        "storage",
+        "activeTab"
     ],
     "options_page": "options.html",
-    "content_scripts": 
-    [
+    "content_scripts": [
         {
-        "matches": ["http://*/*", "https://*/*"],
-        "js": ["js/content.js"],
-        "run_at": "document_end"
+            "matches": ["http://*/*", "https://*/*"],
+            "js": ["js/content.js"],
+            "run_at": "document_end"
         }
     ],
-
-    "action":
-    {
-      "default_popup": "index.html"
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": {
+            "16": "Icons/icon16.png",
+            "32": "Icons/icon32.png",
+            "48": "Icons/icon48.png",
+            "128": "Icons/icon128.png"
+        }
     }
-  }
-  
+}
