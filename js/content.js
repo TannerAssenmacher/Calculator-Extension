@@ -3,16 +3,10 @@ let label = document.getElementById('display');
 let memory = '';
 let operator = '';
 
-// Add a listener for the browser action button
-// chrome.browserAction.onClicked.addListener(function(tab) 
-// {
-//     // Create a new tab with a specific URL
-//     chrome.tabs.create({ url: 'https://www.example.com' });
-// });
-
 function display(num)
-{   
+{
     label.innerHTML = label.innerHTML + num;
+    console.log('innerHtml: ' + label.innerHTML);
 }
 
 function Clear()
@@ -92,3 +86,14 @@ function Calculate()
 
     label.innerHTML = res;
 }
+
+let numberBtns = document.getElementsByClassName('btn-number');
+console.log('len = ' + numberBtns.length)
+Array.from(numberBtns).forEach(btn => btn.addEventListener('click', function(){display(btn.innerHTML)}));
+
+let operatorBtns = document.getElementsByClassName('btn-operator');
+Array.from(operatorBtns).forEach(btn => btn.addEventListener('click', function(){setOperator(btn.innerHTML)}));
+
+document.getElementById('clear').addEventListener('click', Clear);
+document.getElementById('backspace').addEventListener('click', del);
+document.getElementById('equal').addEventListener('click', Calculate);

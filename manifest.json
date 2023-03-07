@@ -17,7 +17,7 @@
     "content_scripts": [
         {
             "matches": ["http://*/*", "https://*/*"],
-            "js": ["js/content.js"],
+            "js": ["js/content.js", "js/mode.js"],
             "run_at": "document_end"
         }
     ],
