@@ -1,7 +1,7 @@
 {
     "name": "Roaming Calculator",
     "version": "1.0.0",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "description": "This is calculator extension used for any on demand calculations.",
     "icons": 
     {
@@ -15,15 +15,6 @@
       "storage",
       "activeTab"
     ],
-    "browser_action": 
-    {
-      "default_icon": 
-      {
-        "16": "Icons/icon16.png",
-        "32": "Icons/icon32.png"
-      },
-      "default_popup": "index.html"
-    },
     "options_page": "options.html",
     "content_scripts": 
     [
