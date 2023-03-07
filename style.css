@@ -79,12 +79,10 @@ body {
     z-index: -1;
 }
 
-
 #display {
-    margin: 0 5px;
     height: 150px;
     width: auto;
-    max-width: 270px;
+    max-width: 290px;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
@@ -95,7 +93,8 @@ body {
 
 #display::-webkit-scrollbar {
     display: block;
-    height: 3px;
+    height: 0px;
+    margin: 0px;
 }
 
 button {
