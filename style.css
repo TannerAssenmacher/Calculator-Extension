@@ -1,9 +1,9 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: content-box;
     outline: 0;
-    transition: all 0.5s ease;
+    transition: all .5s ease;
 }
 
 body {
@@ -12,13 +12,8 @@ body {
     width: 400vm;
 }
 
-a{
-    text-decoration: none;
-    color: #fff;
-}
-
 body {
-    background-image: linear-gradient(to bottom right, rgba(75,51,176,1), rgba(210,53, 165));
+    background-color: transparent;    
 }
 
 .container{
@@ -33,23 +28,17 @@ body {
     height: auto;
     width: auto;
     padding: 20px;
-    border-radius: 10px;
     box-shadow: 0 0 30px #000;
-    /* background-color: #ecf0f3;
-    padding: 15px;
-    border-radius: 30px;
-    box-shadow: inset 5px 5px 12px #ffffff,
-                      5px 5px 12px rgba(0,0,0,.16);   
-    display: grid;             */
 }
 
 .theme-toggler {
     position:absolute;
-    top: 30px;
-    right: 30px;
+    top: 5vh;
+    left: 5vh;
     color: #fff;
     cursor: pointer;
     z-index: 1;
+    transition: none;
 }
 
 .theme-toggler.active {
@@ -79,16 +68,40 @@ body {
     z-index: -1;
 }
 
-#display {
-    height: 150px;
+.display-screen {
+    min-height: 15vh;
+}
+
+#previous {
+    padding: 2% 5%;
+    min-height: 5vh;
     width: auto;
-    max-width: 290px;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    grid-template-columns: repeat(4, 10px);
+    grid-template-rows: minmax(10px, auto);
+    font-size: 20px;
+    transition: all .1s ease;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+#display {
+    padding-right: 3%;
+    min-height: 5vh;
+    width: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    grid-template-columns: repeat(4, 10px);
+    grid-template-rows: minmax(10px, auto);
     font-size: 30px;
     margin-bottom: 20px;
     overflow: scroll;
+    transition: all .1s ease;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 #display::-webkit-scrollbar {
@@ -121,7 +134,11 @@ button:hover {
 }
 
 .calculator #display {
-    color: #0a1e23;
+    color: #16a6ca;
+}
+
+.calculator #previous {
+    color: #16a6ca;
 }
 
 .calculator button#clear {
@@ -152,6 +169,10 @@ button:hover {
 
 .calculator.dark #display {
     color: #f8fafd;
+}
+
+.calculator.dark #previous {
+    color: #98999b;
 }
 
 .calculator.dark button#clear {

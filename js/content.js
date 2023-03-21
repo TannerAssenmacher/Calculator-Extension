@@ -1,10 +1,12 @@
 let label = document.getElementById('display');
+let previous = document.getElementById('previous');
 
 let memory = '';
 let operator = '';
 
 function display(num)
 {
+    if (num === '.' && label.innerHTML.includes('.')) return
     label.innerHTML = label.innerHTML + num;
     console.log('innerHtml: ' + label.innerHTML);
 }
@@ -12,6 +14,7 @@ function display(num)
 function Clear()
 {
     label.innerHTML = '';
+    previous.innerHTML = '';
     memory = '';
 }
 
@@ -29,6 +32,7 @@ function del()
 
 function setOperator(op)
 {
+    if(label.innerHTML === '') return
     operator = op;
 
     let txt = label.innerHTML;
@@ -36,6 +40,7 @@ function setOperator(op)
     Clear();
 
     memory = txt;
+    previous.innerHTML = memory + " " + op;
 }
 
 function Calculate()
@@ -83,8 +88,8 @@ function Calculate()
             res = "Error";
             break;
     }
-
-    label.innerHTML = res;
+    previous.innerHTML = res;
+    label.innerHTML = '';
 }
 
 let numberBtns = document.getElementsByClassName('btn-number');
