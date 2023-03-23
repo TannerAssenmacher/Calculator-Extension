@@ -88,8 +88,9 @@ function Calculate()
             res = "Error";
             break;
     }
+
     previous.innerHTML = res;
-    label.innerHTML = '';
+    label.innerHTML = res;
 }
 
 let numberBtns = document.getElementsByClassName('btn-number');
