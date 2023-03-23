@@ -79,8 +79,8 @@ function setOperator(op, isUnary)
     }
 
     memory = label.innerHTML;
-    label.innnerHTML = '';
     previous.innerHTML = memory + ' ' + op;
+    label.innerHTML = '';
 }
 
 function Calculate()
@@ -141,6 +141,7 @@ function Calculate()
         case '-':
         case '*':
             res = eval(previous.innerHTML + ' ' + val);
+            console.log(previous.innerHTML + ' ' + val + ' = ' + res);
             break;
         case '%':
             if(!(Number.isInteger(val) && Number.isInteger(memory)))
