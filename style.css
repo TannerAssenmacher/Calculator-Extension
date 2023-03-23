@@ -161,6 +161,11 @@ button:hover {
     color: #000;
 }
 
+.calculator button.btn-del {
+    background-color: #ffd0fd;
+    color: #f967f3;
+}
+
 /* dark theme */
 
 .calculator.dark {
