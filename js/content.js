@@ -7,8 +7,19 @@ let operator = '';
 function display(num)
 {
     if (num === '.' && label.innerHTML.includes('.')) return
-    label.innerHTML = label.innerHTML + num;
-    console.log('innerHtml: ' + label.innerHTML);
+    if (num === '+/-' && label.innerHTML.includes('-'))
+    {
+        label.innerHTML = label.innerHTML.replace(/-/g, '');
+    }
+    else if (num === '+/-')
+    {
+        label.innerHTML = '-' + label.innerHTML;
+    }
+    else
+    {
+        label.innerHTML = label.innerHTML + num;
+        console.log('innerHtml: ' + label.innerHTML);
+    }
 }
 
 function Clear()
@@ -45,7 +56,6 @@ function setOperator(op)
 
 function Calculate()
 {
-
     var res;
     let val = Number(label.innerHTML);
 
