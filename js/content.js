@@ -1,3 +1,5 @@
+const UNARY_OPERATORS = ['sin', 'cos', 'tan', 'log', 'ln', 'factorial', 'square', 'sqrt'];
+
 let label = document.getElementById('display');
 let previous = document.getElementById('previous');
 
@@ -18,7 +20,6 @@ function display(num)
     else
     {
         label.innerHTML = label.innerHTML + num;
-        console.log('innerHtml: ' + label.innerHTML);
     }
 }
 
@@ -57,76 +58,121 @@ function toggleMoreOperators()
     }
 }
 
-function setOperator(op)
+function setOperator(op, isUnary)
 {
     if (op == 'more')
     {
         toggleMoreOperators();
-        return
-    }
-    if(label.innerHTML === '') return
 
-    let txt = label.innerHTML;
-    Clear();
-    memory = txt;
-    previous.innerHTML = memory + " " + op;
-}
-
-function Calculate()
-{
-    var res;
-    let val = Number(label.innerHTML);
-
-    memory = Number(memory);
-
-    if(Number.isNaN(memory) || Number.isNaN(val))
-    {
-        memory = 'Error';
         return;
     }
     
+    if(label.innerHTML == '')
+        return;
+    
+    operator = op;
+    if(isUnary)
+    {
+        Calculate();
+        
+        return;
+    }
+
+    memory = label.innerHTML;
+    label.innnerHTML = '';
+    previous.innerHTML = memory + ' ' + op;
+}
+
+function Calculate()
+{   
+    if(Number.isNaN(memory) || Number.isNaN(label.innerHTML))
+    {
+        Clear();
+        label.innerHTML = 'Error';
+        return;
+    }
+
+    var res, val = Number(label.innerHTML);
+    memory = Number(memory.innerHTML);
+    
+
     switch(operator)
     {
+        case 'sin':
+            res = Math.sin(val);
+            break;
+        case 'cos':
+            res = Math.cos(val);
+            break;
+        case 'tan':
+            res = Math.tan(val);
+            break;
+        case 'square':
+            res = val * val;
+            break;
+        case 'sqrt':
+            if(val < 0)
+            {
+                Clear();
+                label.innerHTML = 'Error';
+            }
+            res = Math.sqrt(val);
+            break;
+        case 'log':
+            res = Math.log10(val);
+            break;
+        case 'log':
+            res = Math.log(val);
+            break;
+        case 'factorial':
+            if(!Number.isInteger(val))
+            {
+                Clear();
+                label.innerHTML = 'Error';
+                return;
+            }
+            res = val;
+            if(res == 0)
+                res = 1;
+            for(let i = val; i > 0; --i)
+                res *= i;
+            break;
         case '+':
-            res = memory + val;
-            break;
         case '-':
-            res = memory - val;
-            break;
         case '*':
-            res = memory * val;
+            res = eval(previous.innerHTML + ' ' + val);
             break;
+        case '%':
+            if(!(Number.isInteger(val) && Number.isInteger(memory)))
+            {
+                Clear();
+                label.innerHTML = 'Error';
+                return;
+            }
         case '/':
             if(val == 0)
             {
-                res = 'Error';
+                Clear();
+                label.innerHTML = 'Error';
                 return;
             }
-            res = memory / val;
-            break;
-        case '%':
-            if(val == 0 || !Number.isInteger(memory / val))
-            {
-                res = "Error";
-                return;
-            }
-            res = memory % val;
+            res = eval(previous.innerHTML + ' ' + val);
             break;
         default:
-            res = "Error";
-            break;
+            Clear();
+            label.innerHTML = 'Error';
+            return;
     }
 
-    previous.innerHTML = res;
-    label.innerHTML = res;
+    memory = label.innerHTML;
+    label.innerHTML = previous.innerHTML = res;
 }
 
 let numberBtns = document.getElementsByClassName('btn-number');
-console.log('len = ' + numberBtns.length)
 Array.from(numberBtns).forEach(btn => btn.addEventListener('click', function(){display(btn.innerHTML)}));
 
 let operatorBtns = document.getElementsByClassName('btn-operator');
-Array.from(operatorBtns).forEach(btn => btn.addEventListener('click', function(){setOperator(btn.innerHTML)}));
+Array.from(operatorBtns).forEach(btn => btn.addEventListener('click', function(){setOperator(btn.id, UNARY_OPERATORS.indexOf(btn.id) != -1)}));
 
 document.getElementById('clear').addEventListener('click', Clear);
 document.getElementById('backspace').addEventListener('click', del);
