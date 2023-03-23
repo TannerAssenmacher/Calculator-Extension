@@ -81,7 +81,7 @@ body {
     justify-content: flex-end;
     grid-template-columns: repeat(4, 10px);
     grid-template-rows: minmax(10px, auto);
-    font-size: 20px;
+    font-size: 30px;
     transition: all .1s ease;
     word-wrap: break-word;
     word-break: break-all;
@@ -116,7 +116,7 @@ button {
     border: 0;
     border-radius: 30px;
     margin: 5px;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
     transition: all 200ms ease;
 }
