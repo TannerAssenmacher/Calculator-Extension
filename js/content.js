@@ -41,15 +41,34 @@ function del()
     label.innerHTML = curr.slice(0, curr.length - 1);
 }
 
+function toggleMoreOperators()
+{
+    let numTable = document.getElementById('nums');
+    let opTable = document.getElementById('extraOps');
+    if(numTable.style.display == 'none')
+    {
+        opTable.style.display = 'none';
+        numTable.style.display = 'table';
+    }
+    else
+    {
+        numTable.style.display = 'none';
+        opTable.style.display = 'table';
+    }
+}
+
 function setOperator(op)
 {
     if(label.innerHTML === '') return
-    operator = op;
+
+    if (op == 'more')
+    {
+        toggleMoreOperators();
+        return
+    }
 
     let txt = label.innerHTML;
-
     Clear();
-
     memory = txt;
     previous.innerHTML = memory + " " + op;
 }

@@ -110,6 +110,14 @@ body {
     margin: 0px;
 }
 
+#nums {
+    display: table;
+}
+
+#extraOps {
+    display: none;
+}
+
 button {
     height: 60px;
     width: 60px;
