@@ -59,13 +59,12 @@ function toggleMoreOperators()
 
 function setOperator(op)
 {
-    if(label.innerHTML === '') return
-
     if (op == 'more')
     {
         toggleMoreOperators();
         return
     }
+    if(label.innerHTML === '') return
 
     let txt = label.innerHTML;
     Clear();
