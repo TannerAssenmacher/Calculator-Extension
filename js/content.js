@@ -9,9 +9,23 @@ let operator = '';
 function display(num)
 {
     if(num == 'π')
-        num = Math.PI + '';
+    {
+        if(label.innerHTML == '')
+        {
+            num = Math.PI.toFixed(10) + '';
+            label.innerHTML = num;
+        }
+        return
+    }
     else if(num == 'e')
-        num = Math.E + '';
+    {
+        if(label.innerHTML == '')
+        {
+            num = Math.E.toFixed(10) + '';
+            label.innerHTML = num;
+        }
+        return
+    }
 
     if (num === '.' && label.innerHTML.includes('.')) return
     if (num === '+/-' && label.innerHTML.includes('-'))
