@@ -151,11 +151,7 @@ button:hover {
     background-color: #fff;
 }
 
-.calculator #display {
-    color: #A9A9A9;
-}
-
-.calculator #previous {
+.calculator #display, #previous{
     color: #A9A9A9;
 }
 
@@ -169,17 +165,12 @@ button:hover {
     color: #000000;
 }
 
-.calculator button.btn-operator {
+.calculator button.btn-operator, button.btn-equal, button.btn-clear, button.btn-more {
     background-color: #0047AB ;
     color: #fff;
 }
 
-.calculator button.btn-equal {
-    background-color: #0047AB;
-    color: #fff;
-}
-
-.calculator button.btn-del {
+.calculator.dark button.btn-del{
     background-color: #A8A8A8;
     color: #fff;
 }
@@ -203,22 +194,17 @@ button:hover {
     color: #f8fafd;
 }
 
-.calculator.dark button.btn-operator {
+.calculator.dark .calculator button.btn-operator, button.btn-equal, button.btn-clear, button.btn-more { 
     background-color: #0047AB;
+    color: #fff;
+}
+
+.calculator.dark button.btn-del{
+    background-color: #A8A8A8;
     color: #fff;
 }
 
 .calculator.dark button.btn-number {
     background-color: 	#383838;
     color: #fff;
-}
-
-.calculator.dark button.btn-del {
-    background-color: #A8A8A8;
-    color: #fff;
-}
-
-.calculator.dark button.btn-equal {
-    background-color: #0047AB;
-    color: #ffffff;
 }

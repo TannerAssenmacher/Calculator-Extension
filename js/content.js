@@ -64,14 +64,7 @@ function toggleMoreOperators()
 }
 
 function setOperator(op, isUnary)
-{
-    if (op == 'more')
-    {
-        toggleMoreOperators();
-
-        return;
-    }
-    
+{   
     operator = op;
     if(isUnary)
     {
@@ -188,12 +181,12 @@ function Calculate()
     previous.innerHTML = res;
 }
 
-let numberBtns = document.getElementsByClassName('btn-number');
-Array.from(numberBtns).forEach(btn => btn.addEventListener('click', function(){display(btn.innerHTML)}));
-
-let operatorBtns = document.getElementsByClassName('btn-operator');
-Array.from(operatorBtns).forEach(btn => btn.addEventListener('click', function(){setOperator(btn.id, UNARY_OPERATORS.indexOf(btn.id) != -1)}));
+// Button Events
 
 document.getElementById('clear').addEventListener('click', Clear);
 document.getElementById('backspace').addEventListener('click', del);
-document.getElementById('equal').addEventListener('click', Calculate);
+document.getElementById('more').addEventListener('click', toggleMoreOperators);
+Array.from(document.getElementsByClassName('btn-equal')).forEach(btn => btn.addEventListener('click', Calculate));
+
+Array.from(document.getElementsByClassName('btn-number')).forEach(btn => btn.addEventListener('click', function(){display(btn.innerHTML)}));
+Array.from(document.getElementsByClassName('btn-operator')).forEach(btn => btn.addEventListener('click', function(){setOperator(btn.id, UNARY_OPERATORS.indexOf(btn.id) != -1)}));
