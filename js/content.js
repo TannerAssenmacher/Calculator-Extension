@@ -8,6 +8,11 @@ let operator = '';
 
 function display(num)
 {
+    if(num == 'π')
+        num = Math.PI + '';
+    else if(num == 'e')
+        num = Math.E + '';
+
     if (num === '.' && label.innerHTML.includes('.')) return
     if (num === '+/-' && label.innerHTML.includes('-'))
     {
@@ -84,7 +89,7 @@ function setOperator(op, isUnary)
 }
 
 function Calculate()
-{   
+{
     if(Number.isNaN(memory) || Number.isNaN(label.innerHTML))
     {
         Clear();
