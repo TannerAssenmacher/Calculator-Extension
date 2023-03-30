@@ -175,11 +175,6 @@ button:hover {
     color: #fff;
 }
 
-.calculator button.btn-percent {
-    background-color: #A8A8A8;
-    color: #fff;
-}
-
 .calculator button.btn-equal {
     background-color: #0047AB;
     color: #fff;
@@ -211,11 +206,6 @@ button:hover {
 
 .calculator.dark button.btn-operator {
     background-color: #0047AB;
-    color: #fff;
-}
-
-.calculator.dark button.btn-percent {
-    background-color: #A8A8A8;
     color: #fff;
 }
 

@@ -1,4 +1,4 @@
-const UNARY_OPERATORS = ['sin', 'cos', 'tan', 'log', 'ln', 'factorial', 'square', 'sqrt', '!'];
+const UNARY_OPERATORS = ['sin', 'cos', 'tan', 'log', 'ln', 'factorial', 'square', 'sqrt', '!', '%'];
 
 let label = document.getElementById('display');
 let previous = document.getElementById('previous');
@@ -157,7 +157,7 @@ function Calculate()
                 label.innerHTML = 'Err %';
                 return;
             }
-            res = memory % val;
+            res = val * .01;
             break;
         case '/':
             if(val == 0)
