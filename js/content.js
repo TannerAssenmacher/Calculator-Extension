@@ -98,14 +98,29 @@ function setOperator(op, isUnary)
 
 function Calculate()
 {
-    if(Number.isNaN(memory) || Number.isNaN(label.innerHTML))
+    if(Number.isNaN(memory))
     {
         Clear();
         label.innerHTML = 'Err NaN';
         return;
     }
-    var res, val = Number(label.innerHTML);
+
+    var res, val;
+
+    if(label.innerHTML == '')
+        val = previous.innerHTML;
+    else
+        val = label.innerHTML
+
+    if(Number.isNaN(val))
+    {
+        Clear();
+        label.innerHTML = 'Err NaN';
+        return;
+    }
+    
     memory = Number(memory);
+    val = Number(val);
     
     switch(operator)
     {
@@ -142,10 +157,10 @@ function Calculate()
                 label.innerHTML = 'Err !';
                 return;
             }
-            res = val;
-            if(res == 0)
-                res = 1;
-            for(let i = val; i > 0; --i)
+            res = 1;
+            ++val;
+
+            for(let i = 2; i < val; i++)
                 res *= i;
             break;
         case '+':
@@ -190,9 +205,13 @@ function Calculate()
             return;
     }
 
+    op = operator;
     Clear();
+    operator = op;
     memory = val;
     previous.innerHTML = res;
+
+    console.log('op = ' + operator + ', memory = ' + memory + 'val = ' + val)
 }
 
 // Button Events
