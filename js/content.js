@@ -88,7 +88,7 @@ function Calculate()
     if(Number.isNaN(memory) || Number.isNaN(label.innerHTML))
     {
         Clear();
-        label.innerHTML = 'Error';
+        label.innerHTML = 'Err NaN';
         return;
     }
 
@@ -111,24 +111,24 @@ function Calculate()
             res = val * val;
             break;
         case 'sqrt':
-            if(val < 0)
+            if(val <= 0)
             {
                 Clear();
-                label.innerHTML = 'Error';
+                label.innerHTML = 'Err Sqrt';
             }
             res = Math.sqrt(val);
             break;
         case 'log':
             res = Math.log10(val);
             break;
-        case 'log':
+        case 'ln':
             res = Math.log(val);
             break;
         case 'factorial':
             if(!Number.isInteger(val))
             {
                 Clear();
-                label.innerHTML = 'Error';
+                label.innerHTML = 'Err !';
                 return;
             }
             res = val;
@@ -147,14 +147,16 @@ function Calculate()
             if(!(Number.isInteger(val) && Number.isInteger(memory)))
             {
                 Clear();
-                label.innerHTML = 'Error';
+                label.innerHTML = 'Err %';
                 return;
             }
+            res = val / 100;
+            break;
         case '/':
             if(val == 0)
             {
                 Clear();
-                label.innerHTML = 'Error';
+                label.innerHTML = 'Err /0';
                 return;
             }
             res = eval(previous.innerHTML + ' ' + val);
