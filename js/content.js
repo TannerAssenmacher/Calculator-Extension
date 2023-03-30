@@ -1,4 +1,4 @@
-const UNARY_OPERATORS = ['sin', 'cos', 'tan', 'log', 'ln', 'factorial', 'square', 'sqrt'];
+const UNARY_OPERATORS = ['sin', 'cos', 'tan', 'log', 'ln', 'factorial', 'square', 'sqrt', '!'];
 
 let label = document.getElementById('display');
 let previous = document.getElementById('previous');
@@ -72,9 +72,6 @@ function setOperator(op, isUnary)
         return;
     }
     
-    if(label.innerHTML == '')
-        return;
-    
     operator = op;
     if(isUnary)
     {
@@ -83,7 +80,11 @@ function setOperator(op, isUnary)
         return;
     }
 
-    memory = label.innerHTML;
+    if(label.innerHTML == '')
+        memory = previous.innerHTML;
+    else
+        memory = label.innerHTML;
+
     previous.innerHTML = memory + ' ' + op;
     label.innerHTML = '';
 }
@@ -96,11 +97,9 @@ function Calculate()
         label.innerHTML = 'Err NaN';
         return;
     }
-
     var res, val = Number(label.innerHTML);
-    memory = Number(memory.innerHTML);
+    memory = Number(memory);
     
-
     switch(operator)
     {
         case 'sin':
@@ -129,7 +128,7 @@ function Calculate()
         case 'ln':
             res = Math.log(val);
             break;
-        case 'factorial':
+        case '!':
             if(!Number.isInteger(val))
             {
                 Clear();
@@ -143,19 +142,22 @@ function Calculate()
                 res *= i;
             break;
         case '+':
+            res = memory + val;
+            break;
         case '-':
+            res = memory - val;
+            break;
         case '*':
-            res = eval(previous.innerHTML + ' ' + val);
-            console.log(previous.innerHTML + ' ' + val + ' = ' + res);
+            res = memory * val;
             break;
         case '%':
-            if(!(Number.isInteger(val) && Number.isInteger(memory)))
+            if(!(Number.isInteger(val) && Number.isInteger(memory)) || val == 0)
             {
                 Clear();
                 label.innerHTML = 'Err %';
                 return;
             }
-            res = val / 100;
+            res = memory % val;
             break;
         case '/':
             if(val == 0)
@@ -164,7 +166,16 @@ function Calculate()
                 label.innerHTML = 'Err /0';
                 return;
             }
-            res = eval(previous.innerHTML + ' ' + val);
+            res = memory / val;
+            break;
+        case '^':
+            if(memory == 0 && val < 0)
+            {
+                Clear();
+                label.innerHTML = 'Err ^';
+                return;
+            }
+            res = Math.pow(memory, val);
             break;
         default:
             Clear();
@@ -172,8 +183,9 @@ function Calculate()
             return;
     }
 
-    memory = label.innerHTML;
-    label.innerHTML = previous.innerHTML = res;
+    Clear();
+    memory = val;
+    previous.innerHTML = res;
 }
 
 let numberBtns = document.getElementsByClassName('btn-number');
