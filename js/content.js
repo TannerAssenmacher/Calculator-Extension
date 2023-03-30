@@ -210,8 +210,6 @@ function Calculate()
     operator = op;
     memory = val;
     previous.innerHTML = res;
-
-    console.log('op = ' + operator + ', memory = ' + memory + 'val = ' + val)
 }
 
 // Button Events
