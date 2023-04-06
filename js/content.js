@@ -184,7 +184,7 @@ function Calculate()
                 res = Math.log(val1);
             break;
         case '!':
-            if(!Number.isInteger(val1))
+            if(!Number.isInteger(val1) || val1 < 0)
                 res = 'Err';
             else
             {
