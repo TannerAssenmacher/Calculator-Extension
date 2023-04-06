@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "manifest_version": 3,
     "description": "This is calculator extension used for any on demand calculations.",
+    "background": {
+        "service_worker": "js/background.js"
+          },
+      "key": "jnaikigjdbpndipnfdebljelnaphjmmd",
     "icons": {
         "16": "Icons/icon16.png",
         "48": "Icons/icon48.png",
@@ -11,9 +15,10 @@
     "permissions": [
         "tabs",
         "storage",
-        "activeTab"
+        "activeTab",
+        "windows",
+        "webNavigation"
     ],
-    "options_page": "options.html",
     "content_scripts": [
         {
             "matches": ["http://*/*", "https://*/*"],
@@ -28,6 +33,6 @@
             "32": "Icons/icon32.png",
             "48": "Icons/icon48.png",
             "128": "Icons/icon128.png"
-        }
+        } 
     }
 }

@@ -16,6 +16,15 @@ body {
     background-color: transparent;    
 }
 
+#window {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: orange;
+}
+
 #nums {
     display: table;
 }
@@ -65,8 +74,8 @@ i{
 
 #theme-toggler.active::before {
     content: '';
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
     position: absolute;
     top: 50%;
     transform: translate(-50%,-50%);
@@ -77,8 +86,8 @@ i{
 
 #theme-toggler::before {
     content: '';
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
     position: absolute;
     top: 50%;
     transform: translate(-50%,-50%);
