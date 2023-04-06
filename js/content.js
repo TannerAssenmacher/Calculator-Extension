@@ -8,6 +8,9 @@ let operator = '';
 
 function display(num)
 {
+    if(label.innerHTML == 'Err' || previous.innerHTML == 'Err')
+        Clear();
+
     if(num == 'π')
     {
         if(label.innerHTML == '')
@@ -47,12 +50,12 @@ function Clear()
     label.innerHTML = '';
     previous.innerHTML = '';
     memory = '';
+    operator = '';
 }
 
 function del()
 {
     let curr = label.innerHTML;
-
     if(curr.length == 0)
         return;
     else if(curr.length == 1)
@@ -78,139 +81,159 @@ function toggleMoreOperators()
 }
 
 function setOperator(op, isUnary)
-{   
-    operator = op;
-    if(isUnary)
-    {
-        Calculate();
-        
+{
+    if(label.innerHTML == '' && previous.innerHTML == '' && memory == '')
         return;
-    }
+    
+    if(previous.innerHTML == 'Err')
+        return;
+    
+    operator = op;
 
-    if(label.innerHTML == '')
-        memory = previous.innerHTML;
+    if(isUnary)
+        Calculate();
     else
-        memory = label.innerHTML;
-
-    previous.innerHTML = memory + ' ' + op;
-    label.innerHTML = '';
+    {
+        if(label.innerHTML == '' && !Number.isNaN(previous.innerHTML))
+        {
+            memory = previous.innerHTML;
+            previous.innerHTML += op;
+        }
+        else
+        {
+            memory = label.innerHTML;
+            previous.innerHTML = label.innerHTML + op;
+            label.innerHTML = '';
+        }
+    }
 }
 
 function Calculate()
 {
-    if(Number.isNaN(memory))
-    {
-        Clear();
-        label.innerHTML = 'Err NaN';
+    var val1, val2, res;
+
+    if(operator == '')
         return;
+
+    if(memory == '' && previous.innerHTML == '' && label.innerHTML == '')
+        return;
+    
+    if(previous.innerHTML == 'Err' || label.innerHTML == 'Err')
+        return;
+
+    if(UNARY_OPERATORS.indexOf(operator) != -1)
+    {
+        if(label.innerHTML != '')
+            val1 = label.innerHTML;
+        else
+            val1 = previous.innerHTML;
     }
-
-    var res, val;
-
-    if(label.innerHTML == '')
-        val = previous.innerHTML;
     else
-        val = label.innerHTML
-
-    if(Number.isNaN(val))
     {
-        Clear();
-        label.innerHTML = 'Err NaN';
-        return;
+        if(label.innerHTML == '')
+        {
+            val1 = previous.innerHTML;
+            val2 = memory;
+        }
+        else
+        {
+            val1 = memory;
+            val2 = label.innerHTML;
+        }
     }
     
-    memory = Number(memory);
-    val = Number(val);
+    if(Number.isNaN(val1) && Number.isNaN(val2))
+        return;
     
+    val1 = Number(val1);
+    val2 = Number(val2);
+
     switch(operator)
     {
         case 'sin':
-            res = Math.sin(val);
+            res = Math.sin(val1);
             break;
         case 'cos':
-            res = Math.cos(val);
+            res = Math.cos(val1);
             break;
         case 'tan':
-            res = Math.tan(val);
+            if(Number.isInteger(val1 / (Math.PI / 2)))
+                res = 'Err';
+            else
+                res = Math.tan(val1);
             break;
         case 'square':
-            res = val * val;
+            res = val1 * val1;
             break;
         case 'sqrt':
-            if(val <= 0)
-            {
-                Clear();
-                label.innerHTML = 'Err Sqrt';
-            }
-            res = Math.sqrt(val);
+            if(val1 < 0)
+                res = 'Err';
+            else
+                res = Math.sqrt(val1);
             break;
         case 'log':
-            res = Math.log10(val);
+            if(val1 <= 0)
+                res = 'Err';
+            else
+                res = Math.log10(val1);
             break;
         case 'ln':
-            res = Math.log(val);
+            if(val1 <= 0)
+                res = 'Err';
+            else
+                res = Math.log(val1);
             break;
         case '!':
-            if(!Number.isInteger(val))
+            if(!Number.isInteger(val1))
+                res = 'Err';
+            else
             {
-                Clear();
-                label.innerHTML = 'Err !';
-                return;
+                res = 1;
+                for(var i = 2; i <= val1; ++i)
+                    res *= i;
             }
-            res = 1;
-            ++val;
-
-            for(let i = 2; i < val; i++)
-                res *= i;
             break;
         case '+':
-            res = memory + val;
+            res = val1 + val2;
             break;
         case '-':
-            res = memory - val;
+            res = val1 - val2;
             break;
         case '*':
-            res = memory * val;
-            break;
-        case '%':
-            if(!(Number.isInteger(val) && Number.isInteger(memory)) || val == 0)
-            {
-                Clear();
-                label.innerHTML = 'Err %';
-                return;
-            }
-            res = val * .01;
+            res = val1 * val2;
             break;
         case '/':
-            if(val == 0)
-            {
-                Clear();
-                label.innerHTML = 'Err /0';
-                return;
-            }
-            res = memory / val;
+            if(val2 == 0)
+                res = 'Err';
+            else
+                res = val1 / val2;
+            break;
+        case '%':
+            res = val1 * 0.01;
             break;
         case '^':
-            if(memory == 0 && val < 0)
-            {
-                Clear();
-                label.innerHTML = 'Err ^';
-                return;
-            }
-            res = Math.pow(memory, val);
+            if(val1 == 0 && val1 <= 0)
+                res = 'Err';
+            else
+                res = Math.pow(val1, val2);
             break;
         default:
-            Clear();
-            label.innerHTML = 'Error';
-            return;
+            res = 'Err';
+            break;
     }
 
-    op = operator;
-    Clear();
-    operator = op;
-    memory = val;
+    if(res == 'Err')
+    {
+        Clear();
+        previous.innerHTML = res;
+
+        return;
+    }
+    
+    memory = val2;
     previous.innerHTML = res;
-}
+    label.innerHTML = '';
+}   
 
 // Button Events
 
