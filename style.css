@@ -39,14 +39,17 @@ body {
     box-shadow: 0 0 30px #000;
 }
 
-.fa-solid fa-circle-half-stroke {
+i{
     top: 5vh;
     left: 5vh;
     color: #333;
-    font-size: 5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%,-50%);
 }
 
- .theme-toggler {
+ /* #theme-toggler {
     position:absolute;
     top: 5vh;
     left: 5vh;
@@ -54,14 +57,13 @@ body {
     cursor: pointer;
     z-index: 1;
     transition: none;
-} 
+}  */
 
- .theme-toggler.active {
+ /* #theme-toggler.active {
     color: #333;
-   
 }
 
-.theme-toggler.active::before {
+#theme-toggler.active::before {
     content: '';
     height: 30px;
     width: 30px;
@@ -73,7 +75,7 @@ body {
     z-index: -1;
 }
 
-.theme-toggler::before {
+#theme-toggler::before {
     content: '';
     height: 30px;
     width: 30px;
@@ -83,7 +85,7 @@ body {
     border-radius: 50%;
     background-color: #333;
     z-index: -1;
-} 
+}  */
 
 
 .display-screen {
