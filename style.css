@@ -16,14 +16,14 @@ body {
     background-color: transparent;    
 }
 
-#window {
+/* #window {
     position: absolute;
     top: 0;
     left: 0;
     width: 20px;
     height: 20px;
     background-color: orange;
-}
+} */
 
 #nums {
     display: table;
@@ -48,7 +48,7 @@ body {
     box-shadow: 0 0 30px #000;
 }
 
-i{
+/* i{
     top: 5vh;
     left: 5vh;
     color: #333;
@@ -56,23 +56,24 @@ i{
     cursor: pointer;
     position: absolute;
     transform: translate(-50%,-50%);
-}
+} */
 
- /* #theme-toggler {
+i {
     position:absolute;
     top: 5vh;
     left: 5vh;
     color: #fff;
     cursor: pointer;
-    z-index: 1;
+    transform: translate(-50%,-50%);
     transition: none;
-}  */
+    font-size: 1.5rem;
+} 
 
- /* #theme-toggler.active {
+/* i {
     color: #333;
-}
+} 
 
-#theme-toggler.active::before {
+i.active::before {
     content: '';
     height: 20px;
     width: 20px;
@@ -80,11 +81,12 @@ i{
     top: 50%;
     transform: translate(-50%,-50%);
     border-radius: 50%;
-    background-color: #333;
+    
+    color: #333;
     z-index: -1;
 }
 
-#theme-toggler::before {
+i::before {
     content: '';
     height: 20px;
     width: 20px;
@@ -92,13 +94,16 @@ i{
     top: 50%;
     transform: translate(-50%,-50%);
     border-radius: 50%;
-    background-color: #333;
+    
+    color: #333;
     z-index: -1;
 }  */
 
 
 .display-screen {
     min-height: 15vh;
+    width: 305px;
+    height: 100px;
 }
 
 #previous {
@@ -114,6 +119,7 @@ i{
     transition: all .1s ease;
     word-wrap: break-word;
     word-break: break-all;
+
 }
 
 #display {
@@ -131,6 +137,7 @@ i{
     transition: all .1s ease;
     word-wrap: break-word;
     word-break: break-all;
+
 }
 
 #display::-webkit-scrollbar {

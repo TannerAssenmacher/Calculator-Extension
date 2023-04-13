@@ -241,9 +241,9 @@ function Calculate()
 
 // Button Events
 
-document.getElementById("window").addEventListener("click", function() {
-    chrome.runtime.sendMessage({action: "openWindow"});
-});
+// document.getElementById("window").addEventListener("click", function() {
+//     chrome.runtime.sendMessage({action: "openWindow"});
+// });
 
 document.getElementById('clear').addEventListener('click', Clear);
 document.getElementById('backspace').addEventListener('click', del);
