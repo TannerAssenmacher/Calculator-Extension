@@ -8,9 +8,9 @@
           },
       "key": "jnaikigjdbpndipnfdebljelnaphjmmd",
     "icons": {
-        "16": "Icons/icon16.png",
-        "48": "Icons/icon48.png",
-        "128": "Icons/icon128.png"
+        "16": "Icons/calculator16.png",
+        "48": "Icons/calculator48.png",
+        "128": "Icons/calculator128.png"
     },
     "permissions": [
         "tabs",
@@ -29,10 +29,10 @@
     "action": {
         "default_popup": "index.html",
         "default_icon": {
-            "16": "Icons/icon16.png",
-            "32": "Icons/icon32.png",
-            "48": "Icons/icon48.png",
-            "128": "Icons/icon128.png"
+            "16": "Icons/calculator16.png",
+            "32": "Icons/calculator32.png",
+            "48": "Icons/calculator48.png",
+            "128": "Icons/calculator128.png"
         } 
     }
 }
