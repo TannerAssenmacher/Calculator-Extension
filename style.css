@@ -136,7 +136,7 @@ button:hover {
     color: #fff;
 }
 
-.calculator button.btn-number {
+.calculator button.btn-number, button.btn-sign{
     background-color: 	#F0F0F0;
     color: #000000;
 }
@@ -180,7 +180,7 @@ button:hover {
     color: #fff;
 }
 
-.calculator.dark button.btn-number {
+.calculator.dark button.btn-number, button.btn-sign{
     background-color: 	#383838;
     color: #fff;
 }

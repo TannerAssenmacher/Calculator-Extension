@@ -31,18 +31,19 @@ function display(num)
     }
 
     if (num === '.' && label.innerHTML.includes('.')) return
-    if (num === '+/-' && label.innerHTML.includes('-'))
-    {
+
+    label.innerHTML = label.innerHTML + num;
+}
+
+function changeSign()
+{
+    if(label.innerHTML == '')
+        return;
+
+    if(label.innerHTML.includes('-'))
         label.innerHTML = label.innerHTML.replace(/-/g, '');
-    }
-    else if (num === '+/-')
-    {
-        label.innerHTML = '-' + label.innerHTML;
-    }
     else
-    {
-        label.innerHTML = label.innerHTML + num;
-    }
+        label.innerHTML = '-' + label.innerHTML;
 }
 
 function Clear()
@@ -270,7 +271,7 @@ window.addEventListener('load', function() {
 });
 
 
-
+document.getElementById('+/-').addEventListener('click', changeSign);
 Array.from(document.getElementsByClassName('btn-clear')).forEach(btn => btn.addEventListener('click', Clear));
 Array.from(document.getElementsByClassName('btn-del')).forEach(btn => btn.addEventListener('click', del));
 Array.from(document.getElementsByClassName('btn-more')).forEach(btn => btn.addEventListener('click', toggleMoreOperators));
