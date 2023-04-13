@@ -245,9 +245,9 @@ function Calculate()
 //     chrome.runtime.sendMessage({action: "openWindow"});
 // });
 
-document.getElementById('clear').addEventListener('click', Clear);
-document.getElementById('backspace').addEventListener('click', del);
-document.getElementById('more').addEventListener('click', toggleMoreOperators);
+Array.from(document.getElementsByClassName('btn-clear')).forEach(btn => btn.addEventListener('click', Clear));
+Array.from(document.getElementsByClassName('btn-del')).forEach(btn => btn.addEventListener('click', del));
+Array.from(document.getElementsByClassName('btn-more')).forEach(btn => btn.addEventListener('click', toggleMoreOperators));
 Array.from(document.getElementsByClassName('btn-equal')).forEach(btn => btn.addEventListener('click', Calculate));
 
 Array.from(document.getElementsByClassName('btn-number')).forEach(btn => btn.addEventListener('click', function(){display(btn.innerHTML)}));
