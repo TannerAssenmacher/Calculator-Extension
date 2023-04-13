@@ -10,10 +10,10 @@ body {
     font-family: sans-serif;
     height: 400vm;
     width: 400vm;
-}
-
-body {
     background-color: transparent;    
+    max-width: 400px;
+    max-height: 500px;
+    resize: none;
 }
 
 #window {
@@ -23,6 +23,7 @@ body {
     width: 20px;
     height: 20px;
     background-color: orange;
+    resize: none;
 } 
 
 #nums {

@@ -241,6 +241,35 @@ function Calculate()
 document.getElementById("window").addEventListener("click", function() {
     chrome.runtime.sendMessage({action: "openWindow"});
 });
+var constWidth = 330;
+var constHeight = 530;
+
+// Function to check window size and reset it if changed
+function checkWindowSize() {
+    var currentWidth = window.innerWidth;
+    var currentHeight = window.innerHeight;
+
+    // If the window size has changed, reset it to the original size
+    if (currentWidth !== constWidth || currentHeight !== constHeight) {
+        window.resizeTo(constWidth, constHeight);
+    }
+}
+
+// Add event listener for window load
+window.addEventListener('load', function() {
+    // Get the popup window element
+    var popupWindow = window;
+
+    // Disable dragging of the popup window
+    popupWindow.addEventListener('mousedown', function(event) {
+        event.preventDefault();
+    });
+
+    // Periodically check window size and reset it if changed
+    setInterval(checkWindowSize, 50); // Check every 500 milliseconds (0.5 seconds)
+});
+
+
 
 Array.from(document.getElementsByClassName('btn-clear')).forEach(btn => btn.addEventListener('click', Clear));
 Array.from(document.getElementsByClassName('btn-del')).forEach(btn => btn.addEventListener('click', del));
