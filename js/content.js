@@ -241,9 +241,9 @@ function Calculate()
 
 // Button Events
 
-// document.getElementById("window").addEventListener("click", function() {
-//     chrome.runtime.sendMessage({action: "openWindow"});
-// });
+document.getElementById("window").addEventListener("click", function() {
+    chrome.runtime.sendMessage({action: "openWindow"});
+});
 
 Array.from(document.getElementsByClassName('btn-clear')).forEach(btn => btn.addEventListener('click', Clear));
 Array.from(document.getElementsByClassName('btn-del')).forEach(btn => btn.addEventListener('click', del));

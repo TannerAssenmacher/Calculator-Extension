@@ -16,14 +16,14 @@ body {
     background-color: transparent;    
 }
 
-/* #window {
+#window {
     position: absolute;
     top: 0;
     left: 0;
     width: 20px;
     height: 20px;
     background-color: orange;
-} */
+} 
 
 #nums {
     display: table;
