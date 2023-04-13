@@ -14,16 +14,5 @@ toggle.addEventListener('click', function(){
         toggle.style.color = 'white';
         content.style.color = 'white';
         calculator.style.transition = '1.5s';
-
     }
-
 })
-  
-
-// const themeToggleBtn = document.querySelector('.theme-toggler');
-// let isDark = true;
-// themeToggleBtn.onclick = () => {
-//     calculator.classList.toggle('dark');
-//     themeToggleBtn.classList.toggle('active');
-//     isDark = !isDark;
-// }
