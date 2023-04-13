@@ -241,6 +241,7 @@ function Calculate()
 document.getElementById("window").addEventListener("click", function() {
     chrome.runtime.sendMessage({action: "openWindow"});
 });
+
 var constWidth = 330;
 var constHeight = 530;
 
