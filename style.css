@@ -17,14 +17,12 @@ body {
 }
 
 #window {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    /* background-color: orange; */
-    color: orange;
-    resize: none;
+    position:absolute;
+    top: 5vh;
+    left: 5vh;
+    color: transparent;
+    cursor: pointer;
+    transition: none;
 } 
 
 #nums {
@@ -53,14 +51,26 @@ body {
 
 #toggleDark {
     position:absolute;
-    top: 5vh;
-    left: 5vh;
+    top: 3vh;
+    left: 6vh;
+    width: 20px;
+    height: 20px;
     color: #fff;
     cursor: pointer;
     transform: translate(-50%,-50%);
     transition: none;
-    font-size: 1.5rem;
 } 
+
+#windowIcon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    /* background-color: orange; */
+    color: orange;
+    resize: none;
+}
 
 .display-screen {
     min-height: 15vh;
@@ -108,7 +118,7 @@ body {
     margin: 0px;
 }
 
-button {
+table button {
     height: 60px;
     width: 60px;
     border: 0;
