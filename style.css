@@ -35,7 +35,7 @@ body {
 }
 
 .container{
-    height: 100vh;
+    height: 110vh;
     width: 100vw;
     display: grid;
     place-items: center;
@@ -43,10 +43,11 @@ body {
 
 .calculator{
     position: relative;
-    height: auto;
-    width: auto;
+    height: 510px;
+    width: 290px;
     padding: 20px;
     box-shadow: 0 0 30px #000;
+    border-radius: 30px;
 }
 
 i {
@@ -63,7 +64,7 @@ i {
 .display-screen {
     min-height: 15vh;
     width: 305px;
-    height: 100px;
+    height: 140px;
 }
 
 #previous {
