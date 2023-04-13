@@ -8,7 +8,7 @@ let operator = '';
 
 function display(num)
 {
-    if(label.innerHTML == 'Err' || previous.innerHTML == 'Err')
+    if(previous.innerHTML == 'Err')
         Clear();
 
     if(num == 'π')
@@ -119,7 +119,7 @@ function Calculate()
     if(memory == '' && previous.innerHTML == '' && label.innerHTML == '')
         return;
     
-    if(previous.innerHTML == 'Err' || label.innerHTML == 'Err')
+    if(previous.innerHTML == 'Err')
         return;
 
     if(UNARY_OPERATORS.indexOf(operator) != -1)
@@ -236,8 +236,7 @@ function Calculate()
     label.innerHTML = '';
 }   
 
-
-// Button Events
+// Window Listeners
 
 document.getElementById("window").addEventListener("click", function() {
     chrome.runtime.sendMessage({action: "openWindow"});
@@ -270,6 +269,7 @@ window.addEventListener('load', function() {
     setInterval(checkWindowSize, 50); // Check every 500 milliseconds (0.5 seconds)
 });
 
+// Button Listeners
 
 document.getElementById('+/-').addEventListener('click', changeSign);
 Array.from(document.getElementsByClassName('btn-clear')).forEach(btn => btn.addEventListener('click', Clear));
