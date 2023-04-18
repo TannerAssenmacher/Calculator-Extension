@@ -10,10 +10,11 @@ During the Spring 2023 semester, we created a calculator web extension using HTM
 
 1. Git clone this file to your desktop.
 2. Open the Chrome Extensions Manager in your browser.
-3. Click on the "Load Unpacked" button.
-4. Open the Calculator-Extension file.
-5. Click the Extension Puzzle (You'll see the Roaming Calculator icon!).
-6. Have fun using the calculator!
+3. Click on the "Developer mode" button on the right.
+4. Click on the "Load Unpacked" button on the left.
+5. Open the Calculator-Extension file.
+6. Click the Extension Puzzle (You'll see the Roaming Calculator icon!).
+7. Have fun using the calculator!
 
 # Team
 
