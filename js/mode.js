@@ -2,21 +2,24 @@ const toggle = document.getElementById('toggleDark');
 const calculator = document.querySelector('.calculator');
 const content = document.getElementById('display');
 
-toggle.addEventListener('click', function()
+if (toggle)
 {
-    this.classList.toggle('bi-moon');
-    if(this.classList.contains('bi-brightness-high-fill'))
+    toggle.addEventListener('click', function()
     {
-        calculator.style.background = 'white';
-        toggle.style.color = '#FF5F1F';
-        content.style.color = 'black';
-        calculator.style.transition = '1.5s';
-    }
-    else 
-    {
-        calculator.style.background = 'black';
-        toggle.style.color = '#FF5F1F';
-        content.style.color = 'white';
-        calculator.style.transition = '1.5s';
-    }
-})
+        this.classList.toggle('bi-moon');
+        if(this.classList.contains('bi-brightness-high-fill'))
+        {
+            calculator.style.background = 'white';
+            toggle.style.color = '#FF5F1F';
+            content.style.color = 'black';
+            calculator.style.transition = '1.5s';
+        }
+        else 
+        {
+            calculator.style.background = 'black';
+            toggle.style.color = '#FF5F1F';
+            content.style.color = 'white';
+            calculator.style.transition = '1.5s';
+        }
+    })
+}
