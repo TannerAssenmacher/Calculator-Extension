@@ -284,8 +284,7 @@ window.addEventListener('load', function()
 // Button Listeners
 if (document.getElementById("window"))
 {
-    
-    document.getElementById("window").addEventListener("click", function() 
+    document.getElementById("window").addEventListener("onclick", function() 
     {
         chrome.runtime.sendMessage({action: "openWindow"});
     });
