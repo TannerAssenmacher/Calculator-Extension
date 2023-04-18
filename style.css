@@ -23,7 +23,8 @@ body
 {
     position: absolute;
     top: 1vh;
-    left: 35vh;
+    /* left: 35vh; */
+    left: 53vh;
     margin: 2px;
     padding: 1px;
     color: #FF5F1F;
@@ -39,7 +40,8 @@ body
 
 #windowIcon 
 {
-    left: 1vh;
+    /* left: 1vh; */
+    left: 2vh;
     position: absolute;
     color: #FF5F1F;
     margin: 2px;
