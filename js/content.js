@@ -238,14 +238,17 @@ function Calculate()
 }   
 
 // Window Listeners
-
-if (document)
+window.addEventListener("DOMContentLoaded", (event) => 
 {
-    document.getElementById("window").addEventListener("click", function() 
+    if (document)
     {
-        chrome.runtime.sendMessage({action: "openWindow"});
-    });
-}
+        document.getElementById("window").addEventListener("click", function() 
+        {
+            chrome.runtime.sendMessage({action: "openWindow"});
+        });
+    }
+});
+
 
 var constWidth = 330;
 var constHeight = 570;
