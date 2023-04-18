@@ -23,8 +23,8 @@ body
 {
     position: absolute;
     top: 1vh;
-    /* left: 35vh; */
-    left: 53vh;
+    right: 1vh;
+    /* left: 53vh; */
     margin: 2px;
     padding: 1px;
     color: #FF5F1F;

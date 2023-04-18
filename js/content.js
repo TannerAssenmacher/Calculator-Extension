@@ -242,6 +242,7 @@ window.addEventListener("DOMContentLoaded", (event) =>
 {
     if (document)
     {
+        document.getElementById('+/-').addEventListener('click', changeSign);
         document.getElementById("window").addEventListener("click", function() 
         {
             chrome.runtime.sendMessage({action: "openWindow"});
@@ -281,8 +282,15 @@ window.addEventListener('load', function()
 });
 
 // Button Listeners
+if (document.getElementById("window"))
+{
+    
+    document.getElementById("window").addEventListener("click", function() 
+    {
+        chrome.runtime.sendMessage({action: "openWindow"});
+    });
+}
 
-document.getElementById('+/-').addEventListener('click', changeSign);
 Array.from(document.getElementsByClassName('btn-clear')).forEach(btn => btn.addEventListener('click', Clear));
 Array.from(document.getElementsByClassName('btn-del')).forEach(btn => btn.addEventListener('click', del));
 Array.from(document.getElementsByClassName('btn-more')).forEach(btn => btn.addEventListener('click', toggleMoreOperators));
