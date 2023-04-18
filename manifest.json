@@ -3,10 +3,7 @@
     "version": "1.0.0",
     "manifest_version": 3,
     "description": "This is calculator extension used for any on demand calculations.",
-    "background": {
-        "service_worker": "js/background.js"
-          },
-      "key": "jnaikigjdbpndipnfdebljelnaphjmmd",
+    "key": "jnaikigjdbpndipnfdebljelnaphjmmd",
     "icons": {
         "16": "Icons/calculator16.png",
         "48": "Icons/calculator48.png",
@@ -26,6 +23,9 @@
             "run_at": "document_end"
         }
     ],
+    "background": {
+        "service_worker": "js/background.js"
+          },
     "action": {
         "default_popup": "index.html",
         "default_icon": {
