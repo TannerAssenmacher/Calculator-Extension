@@ -18,6 +18,35 @@ body
     resize: none;
 }
 
+
+#toggleDark 
+{
+    position: absolute;
+    top: 1vh;
+    left: 35vh;
+    margin: 2px;
+    padding: 1px;
+    color: #FF5F1F;
+    cursor: pointer;
+    transition: none;
+    font-size: 1.2rem;
+} 
+
+#toggleDark:hover 
+{
+    transform: scale(1.1);
+}
+
+#windowIcon 
+{
+    left: 1vh;
+    position: absolute;
+    color: #FF5F1F;
+    margin: 2px;
+    padding: 1px;
+    font-size: 1.2rem;
+}
+
 table button 
 {
     height: 60px;
@@ -35,10 +64,10 @@ button:hover
     transform: scale(1.1);
 }
 
-icon:hover 
+/* i:hover 
 {
     transform: scale(1.1);
-}
+} */
 
 .display-screen 
 {
@@ -82,32 +111,6 @@ icon:hover
 #extraOps 
 {
     display: none;
-}
-
-#toggleDark 
-{
-    position: absolute;
-    top: 1vh;
-    left: 5vh;
-    color: #fff;
-    cursor: pointer;
-    transition: none;
-} 
-
-#toggleDark:hover 
-{
-    transform: scale(1.1);
-}
-
-#windowIcon 
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    color: #FF5F1F;
-    resize: none;
 }
 
 #previous 
