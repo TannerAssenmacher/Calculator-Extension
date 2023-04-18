@@ -245,7 +245,7 @@ document.getElementById("window").addEventListener("click", function()
 });
 
 var constWidth = 330;
-var constHeight = 530;
+var constHeight = 570;
 
 // Function to check window size and reset it if changed
 function checkWindowSize() 

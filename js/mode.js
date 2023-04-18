@@ -5,7 +5,7 @@ const content = document.getElementById('display');
 toggle.addEventListener('click', function()
 {
     this.classList.toggle('bi-moon');
-    if(this.classList.toggle('bi-brightness-high-fill'))
+    if(this.classList.contains('bi-brightness-high-fill'))
     {
         calculator.style.background = 'white';
         toggle.style.color = '#FF5F1F';

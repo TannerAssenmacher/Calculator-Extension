@@ -47,6 +47,7 @@ body
     margin: 2px;
     padding: 1px;
     font-size: 1.2rem;
+    transition: none;
 }
 
 table button 
