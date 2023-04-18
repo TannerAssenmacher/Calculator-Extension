@@ -57,6 +57,7 @@ function Clear()
 function del()
 {
     let curr = label.innerHTML;
+
     if(curr.length == 0)
         return;
     else if(curr.length == 1)
@@ -69,6 +70,7 @@ function toggleMoreOperators()
 {
     let numTable = document.getElementById('nums');
     let opTable = document.getElementById('extraOps');
+
     if(numTable.style.display == 'none')
     {
         opTable.style.display = 'none';
@@ -227,7 +229,6 @@ function Calculate()
     {
         Clear();
         previous.innerHTML = res;
-
         return;
     }
     
@@ -238,7 +239,8 @@ function Calculate()
 
 // Window Listeners
 
-document.getElementById("window").addEventListener("click", function() {
+document.getElementById("window").addEventListener("click", function() 
+{
     chrome.runtime.sendMessage({action: "openWindow"});
 });
 
@@ -246,23 +248,25 @@ var constWidth = 330;
 var constHeight = 530;
 
 // Function to check window size and reset it if changed
-function checkWindowSize() {
+function checkWindowSize() 
+{
     var currentWidth = window.innerWidth;
     var currentHeight = window.innerHeight;
 
     // If the window size has changed, reset it to the original size
-    if (currentWidth !== constWidth || currentHeight !== constHeight) {
+    if (currentWidth !== constWidth || currentHeight !== constHeight) 
         window.resizeTo(constWidth, constHeight);
-    }
 }
 
 // Add event listener for window load
-window.addEventListener('load', function() {
+window.addEventListener('load', function() 
+{
     // Get the popup window element
     var popupWindow = window;
 
     // Disable dragging of the popup window
-    popupWindow.addEventListener('mousedown', function(event) {
+    popupWindow.addEventListener('mousedown', function(event) 
+    {
         event.preventDefault();
     });
 
