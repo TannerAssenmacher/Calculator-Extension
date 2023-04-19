@@ -2,9 +2,9 @@
 
 This project was created for Knight Hacks on February 15 - April 18, 2023.
 
-This project aims to design and create a web extension to perform basic calculations for the user. These calculations include unit conversion, basic arithmetic operations, and more advanced mathematic functionalities. Instead of physically getting a calculator or opening another window on your computer, this will serve as a shortcut on the user’s web browser that will open a calculator.
+This project aims to develop a web extension that can perform various calculations for users, including unit conversions, basic arithmetic operations, and more advanced mathematical functions. This extension will serve as a shortcut on the user's web browser, eliminating the need to physically retrieve a calculator or open another window on their computer.
 
-During the Spring 2023 semester, we created a calculator web extension using HTML, CSS, and JavaScript to perform basic calculations for the user. These calculations include: basic arithmetic operations, log functions, trig functions, power functions, and the factorial function. Instead of having to open another window to perform these calculations, the user can pull up the display from their web browser. This calculator can also store previous results, if the user needs to use the result for another calculation. In addition, the calculator comes in both a light and dark mode which can be toggled by the user.
+During the Spring 2023 semester, we created a calculator web extension using HTML, CSS, and JavaScript. The extension allows users to perform basic arithmetic operations, log functions, trig functions, power functions, and factorial functions. Users can access a calculator display directly from their web browser with this extension. The calculator also includes a memory function to store previous results for future calculations. Furthermore, the extension comes in light and dark modes, which can toggle based on user preference.
 
 # How to run
 
