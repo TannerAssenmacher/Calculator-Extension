@@ -6,6 +6,8 @@ This project aims to develop a web extension that can perform various calculatio
 
 During the Spring 2023 semester, we created a calculator web extension using HTML, CSS, and JavaScript. The extension allows users to perform basic arithmetic operations, log functions, trig functions, power functions, and factorial functions. Users can access a calculator display directly from their web browser with this extension. The calculator also includes a memory function to store previous results for future calculations. Furthermore, the extension comes in light and dark modes, which can toggle based on user preference.
 
+<img width="1512" alt="Screenshot 2023-04-19 at 5 14 37 PM" src="https://user-images.githubusercontent.com/66053988/233204918-5531a498-cd20-45ab-a1b9-b73167e637f1.png">
+
 # How to run
 
 1. Git clone this file to your desktop.
